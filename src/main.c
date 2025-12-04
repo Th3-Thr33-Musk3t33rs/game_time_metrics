@@ -52,19 +52,6 @@ int main(int argc, char *argv[]) {
 
     buildTrees(dataset, &bst, &avl, &rbt);
 
-    // printf("====BST PRINT START====\n");
-    // bstPreOrderTraversalPrint(bst);
-    // printf("====BST PRINT END====\n");
-
-
-    // printf("====AVL PRINT START====\n");
-    // avlPreOrderTraversalPrint(avl);
-    // printf("====AVL PRINT END====\n");
-
-    // printf("====RBT PRINT START====\n");
-    // rbtPreOrderTraversalPrint(rbt);
-    // printf("====RBT PRINT END====\n");
-
     printf("\nGenerating DOT files for visualization...\n");
     
     bstGenerateDotFile(bst, "visualization/bst.dot");

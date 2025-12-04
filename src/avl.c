@@ -5,6 +5,8 @@
 
 #include "avl.h"
 
+int avlComp = 0;
+
 // max is a helper function that returns the max value between two integers.
 int max(int a, int b) {
     return (a > b) ? a : b;
@@ -185,4 +187,24 @@ int getTreeBalanceFactor(AvlNode *r) {
     int leftBf = getTreeBalanceFactor(r->left);
 
     return max(max(rightBf, leftBf), rootBf);
+}
+
+void avlPrintStats(AvlNode *r) {
+    return;
+}
+
+AvlNode* queryAvl(AvlNode *r, char *target) {
+    while (r != NULL){
+        avlComp++;
+        if (!strcasecmp(r->info.name, target)){
+            return r;
+        }
+
+        if (strcasecmp(r->info.name, target) > 0) {
+            r = r->left;
+        } else {
+            r = r->right;
+        }
+    }
+    return NULL;
 }

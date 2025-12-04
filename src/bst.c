@@ -4,6 +4,13 @@
 
 #include "bst.h"
 
+int bstComp = 0;
+
+// max is a helper function that returns the max value between two integers.
+int max(int a, int b) {
+    return (a > b) ? a : b;
+}
+
 BstNode* newBinSearchTree(void) {
     return NULL;
 }
@@ -131,3 +138,36 @@ int countBSTNodes(BstNode *r) {
 
     return 1 + countBSTNodes(r->left) + countBSTNodes(r->right);
 }
+
+int height(BstNode *r) {
+    if (r == NULL) {
+        return 0;
+    }
+
+    int leftHeight = height(r->left);
+    int rightHeight = height(r->right);
+
+    return 1 + max(leftHeight, rightHeight);
+}
+
+void bstPrintStats(BstNode *r) {
+    return;
+}
+
+BstNode* queryBst(BstNode *r, char *target) {
+    while (r != NULL){
+        bstComp++;
+        if (!strcasecmp(r->info.name, target)){
+            return r;
+        }
+
+        if (strcasecmp(r->info.name, target) > 0) {
+            r = r->left;
+        } else {
+            r = r->right;
+        }
+    }
+    return NULL;
+}
+
+

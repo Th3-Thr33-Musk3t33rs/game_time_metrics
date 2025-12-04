@@ -4,6 +4,8 @@
 
 #include "rbt.h"
 
+int rbtComp = 0;
+
 RbtNode* newRedBlackTree(void) {
     return NULL;
 }
@@ -101,4 +103,24 @@ void rbtPreOrderTraversalIndented(RbtNode *r, int level) {
 
 void rbtPreOrderTraversalPrint(RbtNode *r) {
     rbtPreOrderTraversalIndented(r, 1);
+}
+
+void rbtPrintStats(RbtNode *r) {
+    return;
+}
+
+RbtNode* queryAvl(RbtNode *r, char *target) {
+    while (r != NULL){
+        rbtComp++;
+        if (!strcasecmp(r->info.name, target)){
+            return r;
+        }
+
+        if (strcasecmp(r->info.name, target) > 0) {
+            r = r->left;
+        } else {
+            r = r->right;
+        }
+    }
+    return NULL;
 }

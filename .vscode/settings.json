@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "bst.h": "c",
+        "avl.h": "c",
+        "string.h": "c"
+    }
+}

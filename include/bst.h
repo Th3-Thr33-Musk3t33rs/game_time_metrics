@@ -31,4 +31,18 @@ void bstPreOrderTraversalPrint(BstNode *r);
 
 // countBSTNodes counts the nodes in the given binary tree.
 int countBSTNodes(BstNode *r);
+
+// height returns the height of the given node.
+int height(BstNode *r);
+
+/* bstPrintStats prints statistics about the given bstree, such as:
+    - Number of nodes
+    - Tree Height
+    - Number of rotations
+    - Number of comparisons done
+*/
+void bstPrintStats(BstNode *r);
+
+// query does a query for the given tree incrementing the the global comparison variable.
+BstNode* queryBst(BstNode *r, char *target);
 #endif
