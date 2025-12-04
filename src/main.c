@@ -56,6 +56,7 @@ int main(int argc, char *argv[]) {
 
     printf("Generated bst.dot, avl.dot, and rbt.dot\n");
     printf("Use a Graphviz tool to view them (e.g., 'dot -Tpng bst.dot -o bst.png')\n");
+
     bstWriteStats(output, bst);
     avlWriteStats(output, avl);
     rbtWriteStats(output, rbt);
