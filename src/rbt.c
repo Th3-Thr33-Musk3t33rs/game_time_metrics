@@ -128,13 +128,6 @@ int rbtHeight(RbtNode *r) {
 }
 
 void rbtPrintStats(RbtNode *r) {
-    /*
-    ======== ESTATÍSTICAS ABP ============ 
-    Número de Nodos: 1000 
-    Altura: 23 
-    Rotações: 0 
-    Comparações: 132
-    */
     printf("============ ESTATÍSTICAS RBT ============\n");
     printf("Número de Nodos: %d\n", countRbtNodes(r));
     printf("Altura: %d\n", rbtHeight(r));
