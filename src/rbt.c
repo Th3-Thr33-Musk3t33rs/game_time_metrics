@@ -127,13 +127,13 @@ int rbtHeight(RbtNode *r) {
     return 1 + max(leftHeight, rightHeight);
 }
 
-void rbtPrintStats(RbtNode *r) {
-    printf("============ ESTATÍSTICAS RBT ============\n");
-    printf("Número de Nodos: %d\n", countRbtNodes(r));
-    printf("Altura: %d\n", rbtHeight(r));
-    printf("Rotações: %d\n", rbtRotations);
-    printf("Comparações: %d\n", rbtComp);
-    printf("==========================================\n");
+void rbtWriteStats(FILE *output, RbtNode *r) {
+    fprintf(output, "============ ESTATÍSTICAS RBT ============\n");
+    fprintf(output, "Número de Nodos: %d\n", countRbtNodes(r));
+    fprintf(output, "Altura: %d\n", rbtHeight(r));
+    fprintf(output, "Rotações: %d\n", rbtRotations);
+    fprintf(output, "Comparações: %d\n", rbtComp);
+    fprintf(output, "==========================================\n");
     return;
 }
 

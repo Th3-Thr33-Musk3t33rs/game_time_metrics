@@ -197,13 +197,13 @@ int getTreeBalanceFactor(AvlNode *r) {
     return max(max(rightBf, leftBf), rootBf);
 }
 
-void avlPrintStats(AvlNode *r) {
-    printf("============ ESTATÍSTICAS AVL ============\n");
-    printf("Número de Nodos: %d\n", countAvlNodes(r));
-    printf("Altura: %d\n", avlHeight(r));
-    printf("Rotações: %d\n", avlRotations);
-    printf("Comparações: %d\n", avlComp);
-    printf("==========================================\n");
+void avlWriteStats(FILE *output, AvlNode *r) {
+    fprintf(output, "============ ESTATÍSTICAS AVL ============\n");
+    fprintf(output, "Número de Nodos: %d\n", countAvlNodes(r));
+    fprintf(output, "Altura: %d\n", avlHeight(r));
+    fprintf(output, "Rotações: %d\n", avlRotations);
+    fprintf(output, "Comparações: %d\n", avlComp);
+    fprintf(output, "==========================================\n");
     return;
 }
 

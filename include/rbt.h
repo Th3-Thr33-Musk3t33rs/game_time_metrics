@@ -40,13 +40,13 @@ int countRbtNodes(RbtNode *r);
 // rbtHeight returns the height of the given node.
 int rbtHeight(RbtNode *r);
 
-/* rbtPrintStats prints statistics about the given rbtree, such as:
+/* rbtWriteStats prints statistics about the given rbtree, such as:
     - Number of nodes
     - Tree Height
     - Number of rotations
     - Number of comparisons done
 */
-void rbtPrintStats(RbtNode *r);
+void rbtWriteStats(FILE *output, RbtNode *r);
 
 // query does a query for the given tree incrementing the the global comparison variable.
 RbtNode* queryRbt(RbtNode *r, char *target);

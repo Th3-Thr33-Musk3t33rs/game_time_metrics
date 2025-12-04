@@ -52,13 +52,13 @@ int getBalanceFactor(AvlNode *r);
 // getTreeBalanceFactor returns the balance factor of the tree, which is the biggest balance factor of the tree's nodes.
 int getTreeBalanceFactor(AvlNode *r);
 
-/* avlPrintStats prints statistics about the given avl tree, such as:
+/* avlWriteStats prints statistics about the given avl tree, such as:
     - Number of nodes
     - Tree Height
     - Number of rotations
     - Number of comparisons done
 */
-void avlPrintStats(AvlNode *r);
+void avlWriteStats(FILE * output, AvlNode *r);
 
 // query does a query for the given tree incrementing the the global comparison variable.
 AvlNode* queryAvl(AvlNode *r, char *target);

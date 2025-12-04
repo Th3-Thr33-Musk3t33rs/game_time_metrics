@@ -35,13 +35,13 @@ int countBSTNodes(BstNode *r);
 // bstHeight returns the height of the given node.
 int bstHeight(BstNode *r);
 
-/* bstPrintStats prints statistics about the given bstree, such as:
+/* bstWriteStats prints statistics about the given bstree, such as:
     - Number of nodes
     - Tree Height
     - Number of rotations
     - Number of comparisons done
 */
-void bstPrintStats(BstNode *r);
+void bstWriteStats(FILE *output, BstNode *r);
 
 // query does a query for the given tree incrementing the the global comparison variable.
 BstNode* queryBst(BstNode *r, char *target);

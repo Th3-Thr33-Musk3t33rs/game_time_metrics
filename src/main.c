@@ -1,7 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
 #include "avl.h"
 #include "bst.h"
 #include "rbt.h"
@@ -40,9 +36,9 @@ int main(int argc, char *argv[]) {
         return EXIT_FAILURE;
     }
 
-    FILE *dataset = fopen(argv[1], READ_ACCESS), *player_wishlist = fopen(argv[2], READ_ACCESS);
-    if (dataset == NULL || player_wishlist == NULL) {
-        printf("Error on opening one input files, please check %s or %s!\n", argv[1], argv[2]);
+    FILE *dataset = fopen(argv[1], READ_ACCESS), *player_wishlist = fopen(argv[2], READ_ACCESS), *output = fopen(argv[3], WRITE_ACCESS);
+    if (dataset == NULL || player_wishlist == NULL || output == NULL) {
+        printf("Error on opening one or more files, please check %s, %s or %s!\n", argv[1], argv[2], argv[3]);
         return EXIT_FAILURE;
     }
 
@@ -60,7 +56,11 @@ int main(int argc, char *argv[]) {
 
     printf("Generated bst.dot, avl.dot, and rbt.dot\n");
     printf("Use a Graphviz tool to view them (e.g., 'dot -Tpng bst.dot -o bst.png')\n");
-    bstPrintStats(bst);
-    avlPrintStats(avl);
-    rbtPrintStats(rbt);
+    bstWriteStats(output, bst);
+    avlWriteStats(output, avl);
+    rbtWriteStats(output, rbt);
+
+    fclose(dataset);
+    fclose(player_wishlist);
+    fclose(output);
 }
