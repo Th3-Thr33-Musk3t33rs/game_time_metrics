@@ -36,8 +36,11 @@ AvlNode* doubleLeftRotate(AvlNode *r);
 // insertNode inserts a node in an AVL tree.
 AvlNode* insertAvlNode(AvlNode *r, NodeInfo newInfo, bool *ok);
 
-// height returns the height of the given node.
-int height(AvlNode *r);
+// countAvlNodes counts the nodes in the given tree.
+int countAvlNodes(AvlNode *r);
+
+// avlHeight returns the height of the given node.
+int avlHeight(AvlNode *r);
 
 // preOrderTraversalPrint prints the given binary tree in following the Pre Order Traversal algorithm.
 void avlPreOrderTraversalPrint(AvlNode *r);

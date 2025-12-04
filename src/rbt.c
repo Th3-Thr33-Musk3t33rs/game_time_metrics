@@ -3,8 +3,9 @@
 #include <stdio.h>
 
 #include "rbt.h"
+#include "utils.h"
 
-int rbtComp = 0;
+int rbtComp = 0, rbtRotations = 0;
 
 RbtNode* newRedBlackTree(void) {
     return NULL;
@@ -49,11 +50,13 @@ void flipColors(RbtNode *r) {
 RbtNode* balance(RbtNode *r) {
     // Case 1: Right child is RED (fix left-leaning).
     if (isRed(r->right) && !isRed(r->left)) {
+        rbtRotations++;
         r = rotateLeft(r);
     }
 
     // Case 2: Left child and Left-Left child are RED (fix 4-node).
     if (isRed(r->left) && isRed(r->left->left)) {
+        rbtRotations++;
         r = rotateRight(r);
     }
 
@@ -105,11 +108,43 @@ void rbtPreOrderTraversalPrint(RbtNode *r) {
     rbtPreOrderTraversalIndented(r, 1);
 }
 
+int countRbtNodes(RbtNode *r) {
+    if (r == NULL) {
+        return 0;
+    }
+
+    return 1 + countRbtNodes(r->left) + countRbtNodes(r->right);
+}
+
+int rbtHeight(RbtNode *r) {
+    if (r == NULL) {
+        return 0;
+    }
+
+    int leftHeight = rbtHeight(r->left);
+    int rightHeight = rbtHeight(r->right);
+
+    return 1 + max(leftHeight, rightHeight);
+}
+
 void rbtPrintStats(RbtNode *r) {
+    /*
+    ======== ESTATÍSTICAS ABP ============ 
+    Número de Nodos: 1000 
+    Altura: 23 
+    Rotações: 0 
+    Comparações: 132
+    */
+    printf("============ ESTATÍSTICAS RBT ============\n");
+    printf("Número de Nodos: %d\n", countRbtNodes(r));
+    printf("Altura: %d\n", rbtHeight(r));
+    printf("Rotações: %d\n", rbtRotations);
+    printf("Comparações: %d\n", rbtComp);
+    printf("==========================================\n");
     return;
 }
 
-RbtNode* queryAvl(RbtNode *r, char *target) {
+RbtNode* queryRbt(RbtNode *r, char *target) {
     while (r != NULL){
         rbtComp++;
         if (!strcasecmp(r->info.name, target)){

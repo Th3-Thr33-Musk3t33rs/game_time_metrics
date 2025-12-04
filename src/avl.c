@@ -4,13 +4,9 @@
 #include <stdio.h>
 
 #include "avl.h"
+#include "utils.h"
 
-int avlComp = 0;
-
-// max is a helper function that returns the max value between two integers.
-int max(int a, int b) {
-    return (a > b) ? a : b;
-}
+int avlComp = 0, avlRotations = 0;
 
 AvlNode* newAvlTree(void) {
     return NULL;
@@ -22,9 +18,11 @@ AvlNode* rebalanceLeft(AvlNode *r, bool *ok) {
 
     if (leftTree->bf == 1) {
         // Left-Left case (- -).
+        avlRotations++;
         r = singleRightRotate(r);
     } else {
         // Left-Right case (- +).
+        avlRotations += 2;
         r = doubleRightRotate(r);
     }
 
@@ -38,9 +36,11 @@ AvlNode* rebalanceRight(AvlNode *r, bool *ok) {
 
     if (rightTree->bf == -1) {
         // Right-Right case (+ +).
+        avlRotations++;
         r = singleLeftRotate(r);
     } else {
         // Right-Left case (+ -).
+        avlRotations += 2;
         r = doubleLeftRotate(r);
     }
 
@@ -143,13 +143,21 @@ AvlNode* insertAvlNode(AvlNode *r, NodeInfo newInfo, bool *ok) {
     return r;
 }
 
-int height(AvlNode *r) {
+int countAvlNodes(AvlNode *r) {
     if (r == NULL) {
         return 0;
     }
 
-    int leftHeight = height(r->left);
-    int rightHeight = height(r->right);
+    return 1 + countAvlNodes(r->left) + countAvlNodes(r->right);
+}
+
+int avlHeight(AvlNode *r) {
+    if (r == NULL) {
+        return 0;
+    }
+
+    int leftHeight = avlHeight(r->left);
+    int rightHeight = avlHeight(r->right);
 
     return 1 + max(leftHeight, rightHeight);
 }
@@ -174,7 +182,7 @@ int getBalanceFactor(AvlNode *r) {
         return 0;
     }
 
-    return abs(height(r->left) - height(r->right));
+    return abs(avlHeight(r->left) - avlHeight(r->right));
 }
 
 int getTreeBalanceFactor(AvlNode *r) {
@@ -190,6 +198,12 @@ int getTreeBalanceFactor(AvlNode *r) {
 }
 
 void avlPrintStats(AvlNode *r) {
+    printf("============ ESTATÍSTICAS AVL ============\n");
+    printf("Número de Nodos: %d\n", countAvlNodes(r));
+    printf("Altura: %d\n", avlHeight(r));
+    printf("Rotações: %d\n", avlRotations);
+    printf("Comparações: %d\n", avlComp);
+    printf("==========================================\n");
     return;
 }
 

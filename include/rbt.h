@@ -34,6 +34,12 @@ bool isRed(RbtNode *n);
 // preOrderTraversalPrint prints the given binary tree in following the Pre Order Traversal algorithm.
 void rbtPreOrderTraversalPrint(RbtNode *r);
 
+// countRbtNodes counts the nodes in the given tree.
+int countRbtNodes(RbtNode *r);
+
+// rbtHeight returns the height of the given node.
+int rbtHeight(RbtNode *r);
+
 /* rbtPrintStats prints statistics about the given rbtree, such as:
     - Number of nodes
     - Tree Height

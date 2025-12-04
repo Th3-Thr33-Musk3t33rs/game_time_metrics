@@ -32,8 +32,8 @@ void bstPreOrderTraversalPrint(BstNode *r);
 // countBSTNodes counts the nodes in the given binary tree.
 int countBSTNodes(BstNode *r);
 
-// height returns the height of the given node.
-int height(BstNode *r);
+// bstHeight returns the height of the given node.
+int bstHeight(BstNode *r);
 
 /* bstPrintStats prints statistics about the given bstree, such as:
     - Number of nodes
