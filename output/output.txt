@@ -9,7 +9,7 @@ Comparisons: 3058
 ============ AVL STATS ============
 Node count: 3598
 Height: 14
-Rotation count: 2726
+Rotation count: 1809
 Comparisons: 2152
 ===================================
 

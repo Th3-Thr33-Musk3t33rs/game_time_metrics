@@ -22,7 +22,7 @@ AvlNode* rebalanceLeft(AvlNode *r, bool *ok) {
         r = singleRightRotate(r);
     } else {
         // Left-Right case (- +).
-        avlRotations += 2;
+        avlRotations++;
         r = doubleRightRotate(r);
     }
 
@@ -40,7 +40,7 @@ AvlNode* rebalanceRight(AvlNode *r, bool *ok) {
         r = singleLeftRotate(r);
     } else {
         // Right-Left case (+ -).
-        avlRotations += 2;
+        avlRotations++;
         r = doubleLeftRotate(r);
     }
 
