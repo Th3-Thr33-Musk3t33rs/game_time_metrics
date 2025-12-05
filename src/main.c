@@ -34,7 +34,7 @@ int main(int argc, char *argv[]) {
         generateDotFiles(bst, avl, rbt);
     }
 
-    fprintf(output, "Tempo total estimado: %.1f horas\n\n", queryTrees(playerWishlist, &bst, &avl, &rbt));
+    fprintf(output, "Total estimated time for playing all games: %.1f hours\n\n", queryTrees(playerWishlist, &bst, &avl, &rbt));
 
     bstWriteStats(output, bst);
     avlWriteStats(output, avl);
