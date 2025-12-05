@@ -18,7 +18,10 @@ int main(int argc, char *argv[]) {
         return EXIT_FAILURE;
     }
 
-    FILE *dataset = fopen(argv[1], READ_ACCESS), *playerWishlist = fopen(argv[2], READ_ACCESS), *output = fopen(argv[3], WRITE_ACCESS);
+    FILE *dataset        = fopen(argv[1], READ_ACCESS),
+         *playerWishlist = fopen(argv[2], READ_ACCESS),
+         *output         = fopen(argv[3], WRITE_ACCESS);
+
     if (dataset == NULL || playerWishlist == NULL || output == NULL) {
         printf("Error on opening one or more files, please check %s, %s or %s!\n", argv[1], argv[2], argv[3]);
         return EXIT_FAILURE;
