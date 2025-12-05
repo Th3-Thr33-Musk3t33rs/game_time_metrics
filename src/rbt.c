@@ -132,7 +132,7 @@ void rbtWriteStats(FILE *output, RbtNode *r) {
     fprintf(output, "Height: %d\n", rbtHeight(r));
     fprintf(output, "Rotation count: %d\n", rbtRotations);
     fprintf(output, "Comparisons: %d\n", rbtComp);
-    fprintf(output, "==========================================\n");
+    fprintf(output, "===================================\n");
     return;
 }
 
