@@ -203,7 +203,7 @@ void avlWriteStats(FILE *output, AvlNode *r) {
     fprintf(output, "Altura: %d\n", avlHeight(r));
     fprintf(output, "Rotações: %d\n", avlRotations);
     fprintf(output, "Comparações: %d\n", avlComp);
-    fprintf(output, "==========================================\n");
+    fprintf(output, "==========================================\n\n");
     return;
 }
 

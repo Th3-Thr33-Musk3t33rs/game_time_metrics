@@ -151,7 +151,7 @@ void bstWriteStats(FILE *output, BstNode *r) {
     fprintf(output, "Número de Nodos: %d\n", countBSTNodes(r));
     fprintf(output, "Altura: %d\n", bstHeight(r));
     fprintf(output, "Comparações: %d\n", bstComp);
-    fprintf(output, "==========================================\n");
+    fprintf(output, "==========================================\n\n");
     return;
 }
 
@@ -170,5 +170,3 @@ BstNode* queryBst(BstNode *r, char *target) {
     }
     return NULL;
 }
-
-
