@@ -147,10 +147,10 @@ int bstHeight(BstNode *r) {
 }
 
 void bstWriteStats(FILE *output, BstNode *r) {
-    fprintf(output, "============ ESTATÍSTICAS ABP ============\n");
-    fprintf(output, "Número de Nodos: %d\n", countBSTNodes(r));
-    fprintf(output, "Altura: %d\n", bstHeight(r));
-    fprintf(output, "Comparações: %d\n", bstComp);
+    fprintf(output, "============ BST STATS ============\n");
+    fprintf(output, "Node count: %d\n", countBSTNodes(r));
+    fprintf(output, "Height: %d\n", bstHeight(r));
+    fprintf(output, "Comparisons: %d\n", bstComp);
     fprintf(output, "==========================================\n\n");
     return;
 }

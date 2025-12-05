@@ -127,11 +127,11 @@ int rbtHeight(RbtNode *r) {
 }
 
 void rbtWriteStats(FILE *output, RbtNode *r) {
-    fprintf(output, "============ ESTATÍSTICAS RBT ============\n");
-    fprintf(output, "Número de Nodos: %d\n", countRbtNodes(r));
-    fprintf(output, "Altura: %d\n", rbtHeight(r));
-    fprintf(output, "Rotações: %d\n", rbtRotations);
-    fprintf(output, "Comparações: %d\n", rbtComp);
+    fprintf(output, "============ RBT STATS ============\n");
+    fprintf(output, "Node count: %d\n", countRbtNodes(r));
+    fprintf(output, "Height: %d\n", rbtHeight(r));
+    fprintf(output, "Rotation count: %d\n", rbtRotations);
+    fprintf(output, "Comparisons: %d\n", rbtComp);
     fprintf(output, "==========================================\n");
     return;
 }
