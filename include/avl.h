@@ -33,7 +33,7 @@ AvlNode* doubleRightRotate(AvlNode *r);
 // It performs a right rotation on the right child, followed by a left rotation on the node.
 AvlNode* doubleLeftRotate(AvlNode *r);
 
-// insertNode inserts a node in an AVL tree.
+// insertAvlNode inserts a node in an AVL tree.
 AvlNode* insertAvlNode(AvlNode *r, NodeInfo newInfo, bool *ok);
 
 // countAvlNodes counts the nodes in the given tree.
@@ -60,6 +60,6 @@ int getTreeBalanceFactor(AvlNode *r);
 */
 void avlWriteStats(FILE * output, AvlNode *r);
 
-// query does a query for the given tree incrementing the the global comparison variable.
+// queryAvl does a query for the given tree incrementing the the global comparison variable.
 AvlNode* queryAvl(AvlNode *r, char *target);
 #endif

@@ -11,7 +11,6 @@ RbtNode* newRedBlackTree(void) {
     return NULL;
 }
 
-// A helper to check color, treating NULL nodes as BLACK
 bool isRed(RbtNode *n) {
     if (n == NULL) {
         return BLACK;

@@ -19,10 +19,10 @@ BstNode* iterativeBSTQuery(BstNode *r, char *target);
 // Returns the desired node containing this value, otherwise returns NULL.
 BstNode* recursiveBSTQuery(BstNode *r, char *target);
 
-// insertNode inserts a new node with newInfo in the given *r binary search tree.
+// insertBstNode inserts a new node with newInfo in the given *r binary search tree.
 BstNode* insertBstNode(BstNode *r, NodeInfo newInfo);
 
-// removeNode removes the first node found containing the target node in the given *r binary search tree. 
+// removeBstNode removes the first node found containing the target node in the given *r binary search tree. 
 // If the node is not found in the given tree, returns NULL.
 BstNode* removeBstNode(BstNode *r, char *target);
 
@@ -43,6 +43,6 @@ int bstHeight(BstNode *r);
 */
 void bstWriteStats(FILE *output, BstNode *r);
 
-// query does a query for the given tree incrementing the the global comparison variable.
+// queryBst does a query for the given tree incrementing the the global comparison variable.
 BstNode* queryBst(BstNode *r, char *target);
 #endif
