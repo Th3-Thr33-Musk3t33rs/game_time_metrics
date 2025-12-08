@@ -1,120 +1,120 @@
 # Game Time Metrics
 
-This project compares how different tree data structures perform when looking up game playtime data. It reads a CSV file of Steam games with their average playtime, loads them into various tree structures, and measures how long it takes to search for specific games.
+Este projeto compara como diferentes estruturas de dados de árvore performam ao buscar dados de tempo de jogo. Ele lê um arquivo CSV de jogos do Steam com seu tempo médio de jogo, carrega-os em várias estruturas de árvore e mede quanto tempo leva para procurar por jogos específicos.
 
-## What does it do?
+## O que ele faz?
 
-The program helps you understand the performance tradeoffs between Binary Search Trees (BST), AVL trees, and Red-Black trees. You give it a dataset of games and their playtime stats, then a list of games you want to look up. It'll tell you:
+O programa ajuda você a entender as compensações de desempenho entre Árvores Binárias de Busca (BST), árvores AVL e árvores Rubro-Negras. Você fornece um conjunto de dados de jogos e suas estatísticas de tempo de jogo, depois uma lista de jogos que deseja buscar. Ele informará:
 
-- How long each tree structure took to build
-- How long searches took in each structure  
-- Total estimated playtime for your game list
-- Which games weren't found in the dataset
+- Quanto tempo cada estrutura de árvore levou para ser construída
+- Quanto tempo as buscas levaram em cada estrutura
+- Tempo total estimado de jogo para sua lista de jogos
+- Quais jogos não foram encontrados no conjunto de dados
 
-It also generates visualizations of the tree structures so you can see how they're organized internally.
+Ele também gera visualizações das estruturas de árvore para que você possa ver como elas estão organizadas internamente.
 
-## The data structures
+## As estruturas de dados
 
-Three tree implementations are included:
+Três implementações de árvore estão incluídas:
 
-- **Binary Search Tree (BST)** - Simple but can become unbalanced with sorted data
-- **AVL Tree** - Self-balancing with strict height constraints
-- **Red-Black Tree** - Self-balancing with looser constraints than AVL
+- **Árvore Binária de Busca (BST)** - Simples, mas pode se tornar desbalanceada com dados ordenados
+- **Árvore AVL** - Auto-balanceada com restrições de altura rigorosas
+- **Árvore Rubro-Negra** - Auto-balanceada com restrições mais flexíveis que AVL
 
-All trees are case-insensitive when comparing game names.
+Todas as árvores são insensíveis a maiúsculas/minúsculas ao comparar nomes de jogos.
 
-## Building the project
+## Construindo o projeto
 
-You need GCC and Make installed. To compile:
+Você precisa ter GCC e Make instalados. Para compilar:
 
 ```bash
 make
 ```
 
-This creates the `measurer.o` executable.
+Isso cria o executável `measurer.o`.
 
-To clean up build artifacts:
+Para limpar os artefatos de compilação:
 
 ```bash
 make clean
 ```
 
-## Running it
+## Executando
 
-The program takes three command-line arguments:
+O programa recebe três argumentos de linha de comando:
 
 ```bash
 ./measurer.o <games_csv> <player_list_txt> <output_txt>
 ```
 
-Example:
+Exemplo:
 
 ```bash
 ./measurer.o dataset/dataset.csv dataset/player_list.txt output/results.txt
 ```
 
-**Input files:**
-- `games_csv` - CSV file with game names and average hours (format: `Game Name,Hours`)
-- `player_list_txt` - Text file with one game name per line
+**Arquivos de entrada:**
+- `games_csv` - Arquivo CSV com nomes de jogos e horas médias (formato: `Nome do Jogo,Horas`)
+- `player_list_txt` - Arquivo de texto com um nome de jogo por linha
 
-**Output:**
-The program writes timing statistics and results to the output file and also prints them to the console.
+**Saída:**
+O programa escreve estatísticas de tempo e resultados no arquivo de saída e também os imprime no console.
 
-## Visualizing the trees
+## Visualizando as árvores
 
-If you have Graphviz installed, you can generate visual representations:
+Se você tiver o Graphviz instalado, pode gerar representações visuais:
 
 ```bash
 make visualize
 ```
 
-This creates SVG files in the `visualization/` directory showing the structure of each tree type.
+Isso cria arquivos SVG no diretório `visualization/` mostrando a estrutura de cada tipo de árvore.
 
-## Project structure
-
-```
-├── src/           # Implementation files
-│   ├── main.c     # Entry point and coordination
-│   ├── bst.c      # Binary Search Tree
-│   ├── avl.c      # AVL Tree  
-│   ├── rbt.c      # Red-Black Tree
-│   ├── utils.c    # File I/O and utilities
-│   └── visualizer.c # Graphviz generation
-├── include/       # Header files
-├── dataset/       # Sample CSV files with game data
-├── output/        # Results go here
-└── visualization/ # Tree diagrams (after make visualize)
-```
-
-## Dataset
-
-The CSV files contain Steam game data with average playtime in hours. The original dataset came from public Steam statistics. Each line has:
+## Estrutura do projeto
 
 ```
-Game Name,Average Hours Played
+├── src/           # Arquivos de implementação
+│   ├── main.c     # Ponto de entrada e coordenação
+│   ├── bst.c      # Árvore Binária de Busca
+│   ├── avl.c      # Árvore AVL
+│   ├── rbt.c      # Árvore Rubro-Negra
+│   ├── utils.c    # E/S de arquivos e utilitários
+│   └── visualizer.c # Geração de Graphviz
+├── include/       # Arquivos de cabeçalho
+├── dataset/       # Arquivos CSV de amostra com dados de jogos
+├── output/        # Resultados são salvos aqui
+└── visualization/ # Diagramas de árvores (após make visualize)
 ```
 
-Some sample datasets are included:
-- `dataset.csv` - Full dataset
-- `dataset_sorted.csv` - Sorted alphabetically (worst case for BST)
-- `dataset_reversed.csv` - Reverse sorted
-- `dataset_random.csv` - Shuffled order
+## Conjunto de dados
 
-## Performance notes
+Os arquivos CSV contêm dados de jogos do Steam com tempo médio de jogo em horas. O conjunto de dados original veio de estatísticas públicas do Steam. Cada linha tem:
 
-You'll notice different behaviors depending on the input order:
+```
+Nome do Jogo,Horas Médias Jogadas
+```
 
-- **Sorted data** causes BST to degenerate into a linked list (O(n) operations)
-- **AVL trees** maintain strict balance, good for read-heavy workloads
-- **Red-Black trees** have cheaper insertions than AVL but slightly slower searches
+Alguns conjuntos de dados de amostra estão incluídos:
+- `dataset.csv` - Conjunto de dados completo
+- `dataset_sorted.csv` - Ordenado alfabeticamente (pior caso para BST)
+- `dataset_reversed.csv` - Ordenado inversamente
+- `dataset_random.csv` - Ordem embaralhada
 
-Try running with different dataset orders to see the performance differences.
+## Notas de desempenho
 
-## Background
+Você notará comportamentos diferentes dependendo da ordem de entrada:
 
-This was originally an assignment for a data structures course at UFRGS, focused on understanding how tree balancing affects real-world performance. The specific use case (game time estimation) was chosen to make the comparison more tangible than abstract benchmark data.
+- **Dados ordenados** fazem com que a BST degenere em uma lista encadeada (operações O(n))
+- **Árvores AVL** mantêm equilíbrio rigoroso, boas para cargas de trabalho com muitas leituras
+- **Árvores Rubro-Negras** têm inserções mais baratas que AVL, mas buscas ligeiramente mais lentas
 
-## Authors
+Tente executar com diferentes ordens de conjuntos de dados para ver as diferenças de desempenho.
+
+## Contexto
+
+Este foi originalmente um trabalho para um curso de estruturas de dados na UFRGS, focado em entender como o balanceamento de árvores afeta o desempenho no mundo real. O caso de uso específico (estimativa de tempo de jogo) foi escolhido para tornar a comparação mais tangível do que dados abstratos de benchmark.
+
+## Autores
 
 **ANDRÉ SCHAIDHAUER LUCKMANN**  
 **VITOR DA CUNHA PIMENTEL DA ROSA**
