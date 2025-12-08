@@ -1,3 +1,5 @@
+#include <time.h>
+
 #include "avl.h"
 #include "bst.h"
 #include "rbt.h"
@@ -26,7 +28,7 @@ int main(int argc, char *argv[]) {
         printf("Error on opening one or more files, please check %s, %s or %s!\n", argv[1], argv[2], argv[3]);
         return EXIT_FAILURE;
     }
-
+    
     BstNode *bst = newBinSearchTree();
     AvlNode *avl = newAvlTree();
     RbtNode *rbt = newRedBlackTree();

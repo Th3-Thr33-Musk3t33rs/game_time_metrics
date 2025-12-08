@@ -52,15 +52,12 @@ float queryTrees(FILE *playerWishlist, BstNode **bst, AvlNode **avl, RbtNode **r
         RbtNode *rbtResult = queryRbt(*rbt, gameName);
 
         if (bstResult == NULL || avlResult == NULL || rbtResult == NULL) {
-            printf("ERROR: Game '%s' not found in one or more trees!\n", gameName);
-            return -1;
+            printf("WARN: Game '%s' not found in one or more trees!\n", gameName);
+            continue;
         }
 
         if (isEqualNodeInfo(bstResult->info, avlResult->info, rbtResult->info)){
             totalEstimateTime += bstResult->info.avg_play_time;
-        } else {
-            printf("ERROR: Result of query nodes are not equal!");
-            return -1;
         }
     }
     return totalEstimateTime;
