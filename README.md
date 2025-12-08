@@ -79,4 +79,5 @@ Isso cria arquivos SVG no diretório `visualization/` mostrando a estrutura de c
 ## Autores
 
 [André Schaidhauer Luckmann](https://github.com/Edigueh)
+
 [Vitor da Cunha Pimentel da Rosa](https://github.com/VitorPimentel17)
