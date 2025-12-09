@@ -62,18 +62,18 @@ Isso cria arquivos SVG no diretório `visualization/` mostrando a estrutura de c
 ## Estrutura do projeto
 
 ```
-├── src/           # Arquivos de implementação
-│   ├── main.c     # Ponto de entrada e coordenação
-│   ├── bst.c      # Árvore Binária de Busca
-│   ├── avl.c      # Árvore AVL
-│   ├── rbt.c      # Árvore Rubro-Negra
-│   ├── utils.c    # E/S de arquivos e utilitários
+├── src/             # Arquivos de implementação
+│   ├── main.c       # Programa principal
+│   ├── bst.c        # Árvore Binária de Pesquisa
+│   ├── avl.c        # Árvore AVL
+│   ├── rbt.c        # Árvore Rubro-Negra
+│   ├── utils.c      # E/S de arquivos e utilitários
 │   └── visualizer.c # Geração de Graphviz
-├── include/       # Arquivos de cabeçalho
-├── dataset/       # Arquivos CSV de amostra com dados de jogos
-├── output/        # Resultados são salvos aqui
-└── visualization/ # Diagramas de árvores (após make visualize)
-└── report/        # Relatório final do trabalho
+├── include/         # Arquivos de cabeçalho
+├── dataset/         # Arquivos CSV de amostra com dados de jogos
+├── output/          # Diretório de resultados
+└── visualization/   # Diagramas de árvores (após make visualize)
+└── report/          # Relatório final do trabalho
 ```
 
 ## Autores
