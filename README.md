@@ -43,6 +43,7 @@ Exemplo:
 ```
 
 **Arquivos de entrada:**
+
 - `games_csv` - Arquivo CSV com nomes de jogos e horas médias (formato: `Nome do Jogo,Horas`)
 - `player_list_txt` - Arquivo de texto com um nome de jogo por linha
 
@@ -72,7 +73,7 @@ Isso cria arquivos SVG no diretório `visualization/` mostrando a estrutura de c
 ├── include/         # Arquivos de cabeçalho
 ├── dataset/         # Arquivos CSV de amostra com dados de jogos
 ├── output/          # Diretório de resultados
-└── visualization/   # Diagramas de árvores (após make visualize)
+├── visualization/   # Diagramas de árvores (após make visualize)
 └── report/          # Relatório final do trabalho
 ```
 
